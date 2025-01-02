@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+body, html {
+    background-color: #2e2e2e; 
+    color: #ffffff; 
+    font-family: "Montserrat", sans-serif;
+    overflow-x: hidden;
+    position: relative;
+    cursor: context-menu;
+}
+
+body::-webkit-scrollbar {
+    width: 1px; 
+}
+
+.header svg{
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.text-block {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    text-align: center;
+}
+
+.text-block h1 {
+    font-size: 2.5rem;
+}
+
+.text-block p {
+    font-size: 1.8rem;
+    margin-top: 10px;
+}
+
+.skills {
+    position: relative;
+    z-index: 1;
+    height: 1000px;
+    background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400"%3E%3Cpath d="M 0 50 Q 100 0 250 50 Q 400 100 550 50 Q 700 0 800 50 Q 800 375 800 350 Q 600 300 400 350 Q 150 400 0 300 Z" fill="%23363636"/%3E%3C/svg%3E') no-repeat center;
+}
+
+.convers{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.convers h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.convers p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+}
+
+.cards-container:hover {
+    background: radial-gradient(circle at var(--mousex) var(--mousey), white, #44444400 15em);
+}
+
+.cards-container{
+    display: flex;
+    justify-content: center;
+    width: min-content;
+    padding: 1px;
+    gap: 20px;  
+    --mousex: 0px;
+    --mousey: 0px;
+}
+
+#with-gap ~ .convers .cards-container {
+    gap: calc(1em + 2px);
+    overflow: hidden;
+}
+  
+#with-gap ~ .convers .card {
+    outline: 1em solid #363636;
+    outline-offset: 1px;
+}
+
+.card {
+    cursor: cell;
+    width: 300px;
+    height: auto;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #494949;
+    border: 1px solid transparent;
+}
+
+.card-top {
+    display: flex;
+    align-items: center;
+    height: 45px;
+    padding: 5px 10px;
+    position: relative;
+    gap: 5px;
+}
+
+.card-top::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px; 
+    background-color: #777; 
+}
+
+.icon{
+    opacity: 0.85;
+}
+
+.card-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.card-bottom p{
+    padding: 10px 2px;
+    font-size: 17px;
+    display: flex;
+    color: #e4e4e4;
+    word-wrap: break-word;
+}
+
+.animate-fade-in, .card {
+    will-change: opacity, transform;
+}
+  
+.animate-fade-in {
+  opacity: 0;
+  transform: translateY(-50px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.card {
+    opacity: 0;
+    transform: translateY(50px); 
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0); 
+}
+
+.me{
+    width: 100%;
+    height: 90vh;
+    padding: 100px 150px;
+}
+
+.info-me{
+    width: 100%;
+    height: auto;
+    border-radius: 25px;
+    background-color: #363636;
+    box-shadow: 0px 0px 40px 0px #363636;
+    transition: 0.5s;
+}
+
+.info-me:hover{
+    box-shadow: 0px 0px 20px 0px #363636;
+}
+
+.info-me p{
+    padding: 40px 30px;
+    font-weight: 500;
+    color: #cecece;
+    font-size: 25px;
+}
+
+.notification {
+    backdrop-filter: blur(40px); 
+    -webkit-backdrop-filter: blur(10px); 
+    position: relative;
+    background-color: #b9b9b92d;
+    color: white;
+    border-radius: 10px;
+    opacity: 0;
+    transform: translateY(-30px);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.notification-container p{
+    padding: 20px 25px;
+}
+  
+.notification.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+  
+.notification.hide {
+    opacity: 0;
+    transform: translateX(100%);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+  
+#notification-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    gap: 10px;
+    flex-direction: column; 
+}
+  
